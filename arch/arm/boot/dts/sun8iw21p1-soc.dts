@@ -522,7 +522,7 @@
 	spi0_pins_c: spi0@2 {
 		allwinner,pins = "PC0", "PC1", "PC2", "PC3", "PC4", "PC5";
 		allwinner,function = "io_disabled";
-		allwinner,muxsel = <7>;
+		allwinner,muxsel = <0xf>;
 		allwinner,drive = <1>;
 		allwinner,pull = <0>;
 	};
@@ -812,7 +812,7 @@
 		allwinner,pins = "PE0", "PE1", "PE2",
 				 "PE3", "PE4", "PE5";
 		allwinner,function = "io_disabled";
-		allwinner,muxsel = <7>;
+		allwinner,muxsel = <0xf>;
 		allwinner,drive = <1>;
 		allwinner,pull = <1>;
 	};
@@ -1173,52 +1173,11 @@
 };
 
 &sdc0 {
-	bus-width = <4>;
-	/*cd-gpios = <&pio PF 6 6 1 3 0xffffffff>;*/
-	/*non-removable;*/
-	/*broken-cd;*/
-	/*cd-inverted;*/
-	data3-detect;
-	/*card-pwr-gpios = <&pio PH 12 1 1 2 0xffffffff>;*/
-	/*cd-used-24M;*/
-	cap-sd-highspeed;
-	sd-uhs-sdr50;
-	sd-uhs-ddr50;
-	sd-uhs-sdr104;
-	no-sdio;
-	no-mmc;
-	sunxi-signal-vol-sw-without-pmu;
-	sunxi-power-save-mode;
-	/*sunxi-dis-signal-vol-sw;*/
-	max-frequency = <150000000>;
-	ctl-spec-caps = <0x408>;
-	/*vmmc-supply = <&reg_dcdc1>;*/
-	/*vqmmc33sw-supply = <&reg_dcdc1>;*/
-	/*vdmmc33sw-supply = <&reg_dcdc1>;*/
-	/*vqmmc18sw-supply = <&reg_bldo1>;*/
-	/*vdmmc18sw-supply = <&reg_bldo1>;*/
+	cd-gpios = <&pio PE 12 6 1 3 0xffffffff>;
 	status = "okay";
 };
 
 &sdc1 {
-	bus-width = <4>;
-	no-mmc;
-	no-sd;
-	cap-sd-highspeed;
-	/*sd-uhs-sdr12*/
-	/*sd-uhs-sdr25*/
-	/*sd-uhs-sdr50;*/
-	/*sd-uhs-ddr50;*/
-	/*sd-uhs-sdr104*/
-	/*sunxi-power-save-mode;*/
-	/*sunxi-dis-signal-vol-sw;*/
-	cap-sdio-irq;
-	keep-power-in-suspend;
-	ignore-pm-notify;
-	max-frequency = <50000000>;
-	ctl-spec-caps = <0x8>;
-	pinctrl-0 = <&sdc1_pins_a>;
-	pinctrl-1 = <&sdc1_pins_b>;
 	status = "okay";
 };
 
