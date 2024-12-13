@@ -93,7 +93,7 @@
             /* Config lane selection */
             csi_sr0_lane_select = <3 1 2 4 4>;
             /* Config lane P/N swap */
-            csi_sr0_lane_pn_swap = <1 1 1 1 1>;
+            csi_sr0_lane_pn_swap = <0 0 0 0 0>;
         };
         vif: vif {
             /* Config sensor 0 pad mux */
